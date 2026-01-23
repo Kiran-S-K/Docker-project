@@ -1,11 +1,4 @@
-Got it 👍
-Below is the **same content**, but written **properly in `README.md` Markdown format** so you can **directly paste it** into your repo.
-
----
-
-```md
 # Docker Compose Microservices Project (Node.js + MongoDB)
-
 This project demonstrates how to build, run, debug, and scale a **multi-container backend system** using **Docker Compose**.
 
 The focus is not just on “making it work”, but on understanding:
@@ -232,5 +225,6 @@ This is not a tutorial copy project.
 It focuses on **real-world DevOps concepts** such as scalability, isolation, persistence, and debugging.
 
 ```
+
 
 

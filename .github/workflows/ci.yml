@@ -28,18 +28,11 @@ jobs:
 
       - name: Check api container running
         run: |
-          CONTAINER_ID=$(docker compose ps -q api)
+          CONTAINER_ID=$(docker ps -q --filter "name=api")
           if [ -z "$CONTAINER_ID" ]; then
             echo "API container not found"
-            exit 1
-          fi
-
-          RUNNING=$(docker inspect -f '{{.State.Running}}' $CONTAINER_ID)
-          if [ "$RUNNING" != "true" ]; then
-            echo "API container is not running"
+            docker ps
             exit 1
           fi
 
           echo "API container is running"
-          
-

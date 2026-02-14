@@ -26,6 +26,19 @@ jobs:
       - name: Show container status
         run: docker compose ps
 
-      - name: Fail if web container is not running
+      - name: Check web container running
         run: |
-          docker compose ps | grep web | grep -v "Up"
+          CONTAINER_ID=$(docker compose ps -q web)
+          if [ -z "$CONTAINER_ID" ]; then
+            echo "Web container not found"
+            exit 1
+          fi
+
+          RUNNING=$(docker inspect -f '{{.State.Running}}' $CONTAINER_ID)
+          if [ "$RUNNING" != "true" ]; then
+            echo "Web container is not running"
+            exit 1
+          fi
+
+          echo "Web container is running"
+

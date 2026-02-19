@@ -26,6 +26,9 @@ jobs:
       - name: Show container status
         run: docker compose ps
 
+      - name: Check API logs
+        run: docker compose logs api
+
       - name: Check api container running
         run: |
           CONTAINER_ID=$(docker ps -q --filter "name=api")

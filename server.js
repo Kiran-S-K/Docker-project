@@ -9,7 +9,7 @@ const MONGO_URL = process.env.MONGO_URL;
 
 let db;
 
-=
+
 async function connectToMongo(retries = 5) {
   try {
     const client = new MongoClient(MONGO_URL);
